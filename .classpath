@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/JadeOWL-HermiT.jar"/>
+	<classpathentry kind="lib" path="lib/jade.jar"/>
+	<classpathentry kind="lib" path="lib/HermiT.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
