@@ -37,18 +37,17 @@ public class AgentClient extends Agent{
 		System.out.println("Agent " + getLocalName() + " started");
 		ontologyManager = new OntologyManager();
 		try {
-			
+			//³adowanie ontologii
 			holidayOntology = ontologyManager.loadAndMapOntology(new File("ontologies/holidayOntology.owl"), "http://semantykaProjekt.com/holidayOntology.owl");
 			
-			//Ask for all countries using custom query
-			
-			//Create a new empty query ontology
+			//Zapytanie o listê pañstw przy u¿yciu zapytania(query)
+			//Tworzenie nowego zapytania do ontologii
 			OWLOntology countryQueryOntology = ontologyManager.getQueryManager().createNewOWLQueryOntology(this);
 			
-			//Get reference to the "Country" class
+			//Odnosimy siê do klasy "Country"
 			OWLClass countryClass = ontologyManager.getDataFactory().getOWLClass(holidayOntology, "Country");
 			
-			//Create a query class that asks for all individuals of class "Country"
+			//Zapytanie, które zwraca nam wszystkie individuale z klasy Country
 			ontologyManager.getQueryManager().createCustomQueryClass(countryQueryOntology, "countryQuery", countryClass);
 			addBehaviour(new AskForCountriesBehaviour(this));
 		} catch (OWLOntologyCreationException e) {
@@ -57,7 +56,7 @@ public class AgentClient extends Agent{
 	}
 	@Override
 	protected void takeDown(){
-		//Clean up
+		//Czyszczenie 
 		ontologyManager.removeAndUnmapAllOntologies();
 	}
 	protected String stripFromIRI(String s) {

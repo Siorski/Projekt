@@ -134,7 +134,7 @@ public class TripsFrame extends JPanel {
 						price = pr.getPrice(s.get(dataKey).iterator().next().toString());
 					}
 				}
-				Object[] data1 = {country, city, /*hotelName,*/ pr.stripFromIRI(date.toString()), duration, transport, price};
+				Object[] data1 = {country, city, pr.stripFromIRI(date.toString()), duration, transport, price};
 				model.addRow(data1);
 			}
 			//Create the scroll pane and add the table to it.
@@ -157,7 +157,6 @@ public class TripsFrame extends JPanel {
 			b2.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent ae) {
-					//AgentClient agentClient = new AgentClient();
 					AgentClient.step = 0;
 					frame.dispose();
 				}
@@ -165,11 +164,6 @@ public class TripsFrame extends JPanel {
 		}
 	}
 
-	/**
-	 * Create the GUI and show it.  For thread safety,
-	 * this method should be invoked from the
-	 * event-dispatching thread.
-	 */
 	public void createAndShowGUI() {
 		
 		//Create and set up the window.

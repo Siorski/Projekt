@@ -44,7 +44,7 @@ public class AgentTrip extends Agent{
 	}
 	@Override
 	protected void takeDown(){
-		//Clean up
+		//Czyszczenie
 		ontologyManager.removeAndUnmapAllOntologies();
 	}
 	protected String stripFromIRI(String s) {
@@ -64,7 +64,6 @@ public class AgentTrip extends Agent{
 		    } catch(NumberFormatException e) { 
 		        return false; 
 		    }
-		    // only got here if we didn't return false
 		    return true;
 		}
 		@Override
@@ -102,7 +101,7 @@ public class AgentTrip extends Agent{
 						ArrayList<Set<OWLNamedIndividual>> indTemp = new ArrayList<Set<OWLNamedIndividual>>();
 						indReturn.clear();
 						indTemp.clear();
-						// Pobieramy individuale preferencji (czyli daty)
+						// Pobieramy individuale (daty)
 						Set<OWLNamedIndividual> individuals = ontologyManager.getQueryManager().filterAnswerSetInstances(ontology);
 						OWLClass c = ontologyManager.getDataFactory().getOWLClass(holidayOntology, "Date");
 						Set<OWLNamedIndividual> dateInd = ontologyManager.getQueryManager().getInstancesForClassQuery(c, holidayOntology);
@@ -168,12 +167,11 @@ public class AgentTrip extends Agent{
 									howManyDurations++;
 								} else if(transportPreferences.contains(preference)) {
 									howManyTransport++;
-									//howMany++;
 								}
 							}
-							// paczamy czy iloœæ zgodnych preferencji jest równa liczbie preferencji wybranych przez usera
-							// jezeli ta to dodajemy date to wyników
-							// patrzymy tez czy wycieczka zawiera przynajmniej jedna preferencje dot czasu wybrana przez usera
+							// patrzymy czy iloœæ zgodnych preferencji jest równa liczbie preferencji wybranych przez usera
+							// jezeli tak to dodajemy date to wyników
+							// patrzymy tez czy wycieczka zawiera przynajmniej jedna preferencje czasu i transportu wybrana przez usera
 							if(howMany == iloscPreferencji && howManyDurations >= 1 && howManyTransport >= 1) {
 								indReturn.add(date);								
 							}

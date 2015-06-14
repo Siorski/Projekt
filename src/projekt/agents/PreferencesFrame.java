@@ -58,7 +58,7 @@ public class PreferencesFrame extends JDialog {
 		buttonPanel.setOpaque(false);
 		Iterator<OWLNamedIndividual> it = individuals.iterator();
 		while(it.hasNext()){
-			String[] item2 = it.next().toString().split("#");
+			String[] item2 = it.next().toString().split("#");		
 			String item3 = item2[1].split(">")[0];
 			JCheckBox check = new JCheckBox(item3);
 			check.setBorderPainted(false);

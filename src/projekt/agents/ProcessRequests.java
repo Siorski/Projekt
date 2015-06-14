@@ -29,12 +29,15 @@ public class ProcessRequests {
 			e.printStackTrace();
 		}
 	}
+	//pobieramy ObjectProperties z ontologii
 	public Map<OWLObjectPropertyExpression, Set<OWLIndividual>> getObjectProperties(OWLNamedIndividual individual) {
 		return individual.getObjectPropertyValues(holidayOntology);
 	}
+	//pobieramy DataPropertiers z ontologii
 	public Map<OWLDataPropertyExpression, Set<OWLLiteral>> getDataProperties(OWLNamedIndividual individual) {
 		return individual.getDataPropertyValues(holidayOntology);
 	}
+	//pobieramy individuale z ontologii
 	public OWLNamedIndividual getIndividual(String i) {
 		return ontologyManager.getDataFactory().getOWLNamedIndividual(holidayOntology, i);
 	}
@@ -59,6 +62,7 @@ public class ProcessRequests {
 		return null;
 
 	}
+	//pobieramy wartoœci
 	public Map<OWLDataPropertyExpression, Set<OWLLiteral>> getDataValues(OWLNamedIndividual individual) {
 		return individual.getDataPropertyValues(holidayOntology); 
 	}
